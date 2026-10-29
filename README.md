@@ -25,7 +25,8 @@ node summarize.mjs <url-or-id> [more...] [options]
 | Option | Description |
 | --- | --- |
 | `--lang <code>` | Preferred caption language (default: `en`; Whisper auto-detects) |
-| `-m, --model <model>` | Codex model (default: from `~/.codex/config.toml`) |
+| `-m, --model <model>` | Codex model (default: `gpt-6-sol`) |
+| `-e, --effort <level>` | Codex reasoning effort: `low`, `medium`, `high`, `xhigh`, `max` (default: `medium`) |
 | `-p, --prompt <text>` | Custom instructions in place of the default summary prompt |
 | `-t, --transcript-only` | Print the transcript and skip Codex |
 | `-o, --out <dir>` | Also write `<id>.md` (summary) and `<id>.txt` (transcript) |

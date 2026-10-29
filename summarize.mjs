@@ -16,7 +16,8 @@ no captions, its audio is downloaded and transcribed locally with Whisper.
 
 Options:
   --lang <code>            Preferred caption language (default: en; Whisper auto-detects)
-  -m, --model <model>      Codex model to use (default: from ~/.codex/config.toml)
+  -m, --model <model>      Codex model to use (default: gpt-6-sol)
+  -e, --effort <level>     Codex reasoning effort: low, medium, high, xhigh, max (default: medium)
   -p, --prompt <text>      Custom instructions in place of the default summary prompt
   -t, --transcript-only    Print the transcript and skip Codex
   -o, --out <dir>          Also write <id>.md (summary) and <id>.txt (transcript) here
@@ -41,7 +42,8 @@ async function main() {
     allowPositionals: true,
     options: {
       lang: { type: 'string' },
-      model: { type: 'string', short: 'm' },
+      model: { type: 'string', short: 'm', default: 'gpt-6-sol' },
+      effort: { type: 'string', short: 'e', default: 'medium' },
       prompt: { type: 'string', short: 'p' },
       'transcript-only': { type: 'boolean', short: 't', default: false },
       out: { type: 'string', short: 'o' },
@@ -88,6 +90,7 @@ async function main() {
         title: t.title,
         prompt: values.prompt,
         model: values.model,
+        effort: values.effort,
         chunkChars,
         concurrency,
       });
