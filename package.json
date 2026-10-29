@@ -1,0 +1,8 @@
+{
+  "name": "youtube-summary",
+  "version": "1.0.0",
+  "description": "Pull YouTube transcripts and summarise them with the Codex CLI",
+  "type": "module",
+  "bin": { "yt-summary": "./summarize.mjs" },
+  "engines": { "node": ">=18" }
+}
